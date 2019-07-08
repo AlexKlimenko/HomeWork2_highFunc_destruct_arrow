@@ -124,3 +124,31 @@ function destruct(el, ...arr) {
 
 result = destruct("a", "b", "c", "d");
 console.log(result);
+
+console.log(`
+ `);
+
+
+
+console.log("5. Организовать функцию getInfo, которая принимает объект вида и выводит в консоль имя (если имени нет, показывать ‘Unknown’) и первые две компании из массива partners");
+
+const organisation = {
+  name: 'Google',
+  info: {
+    employees: ['Vlad', 'Olga'],
+    partners: ['Microsoft', 'Facebook', 'Xing']
+  }
+};
+
+function getInfo(obj) {
+  const {
+    name = 'unknown', info: {
+      partners: [partner1, partner2]
+    }
+  } = obj;
+  console.log(`Name: ${name}`);
+  console.log(`Partners: ${partner1}, ${partner2}`);
+  return
+};
+
+getInfo(organisation);

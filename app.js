@@ -68,3 +68,59 @@ console.log(`
  `);
 
 console.log("2. Написать аналог метода every. Создайте функцию every, она должна принимать первым аргументом массив чисел (обязательно проверьте что передан массив) вторым аргументом callback (обязательно проверьте что передана функция) функция должна возвращать true или false в зависимости от результата вызова callback(проверить число больше 5).Callback должен принимать один элемент массива, его индекс в массиве и весь массив.");
+
+const array = [12, 5, 8, 130, 44];
+
+function every(arr, handler) {
+  if (!Array.isArray(arr)) return console.log(`First argument should be array`);
+  if (typeof handler !== 'function') return console.log(`Second argument should be function`);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!handler(arr[i])) return false;
+  }
+
+  return true;
+};
+
+function compareNum(el, index, arr) {
+  return el > 5;
+};
+
+let result = every(array, compareNum);
+console.log(result);
+
+console.log(`
+ `);
+
+console.log("3. Переделать функцию с использованием функции-стрелки (в методе reduce тоже использовать arrow function)");
+
+const arrowReduce = (...args) => {
+  let sum = 0;
+
+  if (!args.length) return 0;
+
+  for (let value of args) sum += value;
+
+  return sum;
+};
+
+let reduce = arrowReduce(1, 2, 3, 4);
+
+console.log(reduce);
+
+
+console.log(`
+ `);
+
+console.log("4. Используя rest оператор и деструктуризацию, создать функцию, которая принимает любое количество аргументов и возвращает объект, содержащий первый аргумент и массив из остатка");
+
+function destruct(el, ...arr) {
+  const obg = {
+    first: el,
+    other: arr
+  };
+  return obg;
+};
+
+result = destruct("a", "b", "c", "d");
+console.log(result);

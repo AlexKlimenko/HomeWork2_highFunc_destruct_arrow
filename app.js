@@ -6,8 +6,7 @@ console.log(
 
 const arr1 = ["my", "name", "is", "Trinity"];
 const arr2 = [10, 20, 30];
-const arr3 = [
-  {
+const arr3 = [{
     age: 45,
     name: "John"
   },
@@ -50,7 +49,7 @@ const handler3 = el => `${el.name} is ${el.age}, `;
 const handler4 = el => {
   let str = "";
 
-  for (let i = el.length; i--; ) str += el[i];
+  for (let i = el.length; i--;) str += el[i];
   str += ", ";
 
   return str;
@@ -148,12 +147,12 @@ const organisation = {
 };
 
 function getInfo(obj) {
-  const objInfo = ({
+  const objInfo = {
     name = "unknown",
     info: {
       partners: [partner1, partner2]
     }
-  } = obj);
+  } = obj;
   console.log(`Name: ${name}`);
   console.log(`Partners: ${partner1}, ${partner2}`);
   return objInfo;
